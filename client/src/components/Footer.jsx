@@ -3,8 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
     <div className="mt-auto bg-secondaryBlack">
-      <footer className="container py-3 flex justify-between text-xs">
-        <p>
+      <footer className="container py-3 flex flex-col md:flex-row justify-between text-xs">
+        <p className="px-3">
           Made with ❤ by
           <a
             className="hover:text-blue-500 hover:underline mx-1"
@@ -23,7 +23,9 @@ const Footer = () => {
           </a>
           for contribution
         </p>
-        <p>Copyright {new Date().getFullYear()} - All Rights Reserved</p>
+        <p className="px-3">
+          Copyright {new Date().getFullYear()} - All Rights Reserved
+        </p>
       </footer>
     </div>
   );
