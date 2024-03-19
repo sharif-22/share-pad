@@ -2,9 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-primaryBlack text-slate-200;
+html {
+  @apply h-full; /* h-full for fixing the footer at bottom */
 }
+
+body {
+  @apply bg-primaryBlack text-slate-200 h-full; /* h-full for fixing the footer at bottom */
+}
+
+body #root {
+  @apply flex flex-col min-h-full; /* for fixing the footer at bottom */
+}
+
+/* utility classes */
 
 .btn-blue {
   @apply bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded transition-all duration-300;
@@ -17,6 +27,9 @@ body {
 .inputStyle {
   @apply bg-secondaryBlack p-3 w-full outline-none rounded border border-secondaryBlack  focus-within:border-accentBlue;
 }
+
+/* Markdown viewer styles  */
+
 .markdownStyle {
   @apply bg-secondaryBlack text-slate-200 p-6 rounded space-y-3;
 }
