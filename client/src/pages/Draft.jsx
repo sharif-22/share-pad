@@ -1,10 +1,12 @@
 import React, { useRef, useState } from "react";
 import MarkdownViewer from "../components/uiComponents/MarkdownViewer";
+import MarkdownModel from "../components/uiComponents/MarkdownModel";
 import Input from "../components/uiComponents/form/Input";
 import TextArea from "../components/uiComponents/form/TextArea";
 
 const Draft = () => {
   const formRef = useRef();
+  const [modelOpen, setModelOpen] = useState(false);
   const [markDownContent, setMarkDownContent] = useState("");
 
   const moveToNxtEl = (event, id) => {
@@ -39,7 +41,6 @@ const Draft = () => {
             onEnter={(e) => moveToNxtEl(e, "MarkDownEditor")}
           />
           {/* text area  */}
-
           <TextArea
             label="Add detailed notes for future reference"
             id="MarkDownEditor"
@@ -50,7 +51,11 @@ const Draft = () => {
 
           {/* actions  */}
           <div className="flex justify-end gap-4">
-            <button className="btn-blue" type="button">
+            <button
+              onClick={() => setModelOpen(true)}
+              className="btn-blue"
+              type="button"
+            >
               Preview
             </button>
             <button type="submit" className="btn-green">
@@ -59,7 +64,9 @@ const Draft = () => {
           </div>
         </form>
 
-        <MarkdownViewer markDownContent={markDownContent} />
+        <MarkdownModel open={modelOpen} onClose={() => setModelOpen(false)}>
+          <MarkdownViewer markDownContent={markDownContent} />
+        </MarkdownModel>
       </div>
     </>
   );
